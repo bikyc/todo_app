@@ -19,11 +19,6 @@ export class BodyComponent implements OnInit {
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
-    // this.editTaskValue = '';
-    // this.addTaskValue = '';
-    // this.taskObj = new Task();
-    // this.pendingTasks =[];
-    //this.getAllTask();
     const pendingTasks = localStorage.getItem('pendingTasks') ? JSON.parse(localStorage.getItem('pendingTasks') || '{}') : [];
     if(pendingTasks){
       this.pendingTasks = pendingTasks.filter((a:Task) => a.status === "pending");
